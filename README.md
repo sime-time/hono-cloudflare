@@ -24,6 +24,7 @@ A minimal boilerplate for building APIs with [Hono](https://hono.dev/) on Cloudf
      ```
 
 3. **Configure your D1 database on Cloudflare.**
+  - Replace all instances of `recipe-db` with `your-db-name` from cloudflare d1
 
 ## Scripts
 
@@ -50,14 +51,18 @@ A minimal boilerplate for building APIs with [Hono](https://hono.dev/) on Cloudf
   - Generate Drizzle ORM types and migrations from your schema.
 
 - **d1:local**
-  - `pnpm dlx wrangler d1 execute recipe-db --local --file <file.sql>`
+  - `pnpm dlx wrangler d1 execute your-db-name --local --file <file.sql>`
   - Run a SQL migration or command against your local D1 database. Pass the SQL file as an argument.
 
 - **d1:remote**
-  - `pnpm dlx wrangler d1 execute recipe-db --remote --file <file.sql>`
+  - `pnpm dlx wrangler d1 execute your-db-name --remote --file <file.sql>`
   - Run a SQL migration or command against your remote D1 database. Pass the SQL file as an argument.
 
 **Example:**
+Generate sql file to migrate:
+```sh
+pnpm run d1:generate
+```
 
 To run a migration locally:
 
@@ -69,6 +74,8 @@ pnpm run d1:local ./src/db/migrations/your-migration.sql
 
 - Cloudflare account with D1 database enabled
 - `.dev.vars` file with `BETTER_AUTH_SECRET` set
+- Replace all instances of `recipe-db` with `your-db-name` from cloudflare d1
+- Update the `src/config/bindings` file to match cloudflare bindings
 
 ## Customization
 
