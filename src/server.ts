@@ -7,7 +7,6 @@ const app = new Hono<{ Bindings: CloudflareBindings }>();
 
 // catch-all route for better-auth
 app.on(["GET", "POST"], "/api/auth/*", (c) => {
-  console.log("auth route hit")
   return auth(c.env).handler(c.req.raw);
 });
 
