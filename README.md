@@ -70,7 +70,7 @@ To run a migration locally:
 pnpm run d1:local ./src/db/migrations/your-migration.sql
 ```
 
-(The sqlite db will be found in .wrangler/state/v3/d1/miniflare-D1Database/<sqlite-file-name>)
+(The LOCAL sqlite db will be found in .wrangler/state/v3/d1/miniflare-D1Database/<sqlite-file-name>)
 
 ## Requirements
 
